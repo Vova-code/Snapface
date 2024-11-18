@@ -12,15 +12,32 @@ import {FaceSnap} from './models/face-snap';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  mySnap!: FaceSnap;
+  faceSnaps!: FaceSnap[];
 
   ngOnInit(): void {
-    this.mySnap = new FaceSnap(
-      'Monster Hunter',
-      'Un jeu où tu chasses des monstres',
-      'https://images.unsplash.com/photo-1719776561309-792b93f50703?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      new Date(),
-      0
-    );
+    this.faceSnaps = [
+      new FaceSnap(
+        'Archibald',
+        'Mon meilleur ami depuis toujours !',
+        'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+        new Date(),
+        10
+      ),
+      new FaceSnap(
+        'Three Rock Mountain',
+        'Un endroit magnifique pour les randonnées.',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
+        new Date(),
+        6
+      ),
+      new FaceSnap(
+        'Un bon repas',
+        'Mmmh que c\'est bon !',
+        'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
+        new Date(),
+        156
+      )
+    ];
+    this.faceSnaps[1].setLocation('à la montagne');
   }
 }
