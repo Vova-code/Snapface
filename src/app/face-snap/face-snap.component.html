@@ -7,4 +7,7 @@
     <button (click)="handleSnap()">{{ snapButtonText }}</button>
     🤌🏾 {{ faceSnap.snaps }}
   </p>
+  @if (faceSnap.location) {
+    <p>localisation: {{ faceSnap.location }}</p>
+  }
 </div>
