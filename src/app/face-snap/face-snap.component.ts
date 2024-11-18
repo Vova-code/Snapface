@@ -1,12 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgStyle} from '@angular/common';
+import {NgClass, NgStyle} from '@angular/common';
 import {FaceSnap} from '../models/face-snap';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
   imports: [
-    NgStyle
+    NgStyle,
+    NgClass
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
@@ -14,16 +15,16 @@ import {FaceSnap} from '../models/face-snap';
 export class FaceSnapComponent implements OnInit{
   @Input() faceSnap!: FaceSnap;
 
-  snapped!: boolean;
+  hasBeenSnapped!: boolean;
   snapButtonText!: string;
 
   ngOnInit(): void {
-    this.snapped = false;
+    this.hasBeenSnapped = false;
     this.snapButtonText = 'Oh Snap!';
   }
 
   handleSnap() {
-    if (!this.snapped) {
+    if (!this.hasBeenSnapped) {
       this.unSnap();
     } else {
       this.snap();
@@ -32,13 +33,13 @@ export class FaceSnapComponent implements OnInit{
 
   private snap() {
     this.faceSnap.removeSnap();
-    this.snapped = false;
+    this.hasBeenSnapped = false;
     this.snapButtonText = 'Oh Snap!';
   }
 
   private unSnap() {
     this.faceSnap.addSnap();
-    this.snapped = true;
+    this.hasBeenSnapped = true;
     this.snapButtonText = 'Oops, un Snap!'
   }
 }
