@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {NgStyle} from '@angular/common';
 import {FaceSnap} from '../models/face-snap';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgStyle
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'

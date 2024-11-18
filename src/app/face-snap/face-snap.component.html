@@ -5,7 +5,7 @@
   <p>{{ faceSnap.description }}</p>
   <p>
     <button (click)="handleSnap()">{{ snapButtonText }}</button>
-    🤌🏾 {{ faceSnap.snaps }}
+    <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌🏾 {{ faceSnap.snaps }}</span>
   </p>
   @if (faceSnap.location) {
     <p>localisation: {{ faceSnap.location }}</p>
