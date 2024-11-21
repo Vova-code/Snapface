@@ -10,4 +10,16 @@
   @if (faceSnap.location) {
     <p>localisation: {{ faceSnap.location }}</p>
   }
+  <div>
+    <p class="pipeTitle">DecimalPipe</p>
+    <p>{{ 4346234.36 | number:'1.0-2' }}</p>
+  </div>
+  <div>
+    <p class="pipeTitle">PercentPipe</p>
+    <p>{{ 0.336 | percent:'1.0-1' }}</p>
+  </div>
+  <div>
+    <p class="pipeTitle">CurrencyPipe</p>
+    <p>{{ 344.36 | currency:'EUR' }}</p>
+  </div>
 </div>
