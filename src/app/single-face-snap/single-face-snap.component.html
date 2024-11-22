@@ -1,0 +1,26 @@
+<div class="face-snap-card" [ngClass]="{ snapped: hasBeenSnapped }">
+  <a routerLink="/facesnaps">BACK</a>
+  <h2>{{ faceSnap.title | uppercase }}</h2>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+  <p>Mis en ligne le {{ faceSnap.createdAt | date: 'd MMMM yyyy, à HH:mm' }}</p>
+  <p>{{ faceSnap.description }}</p>
+  <p>
+    <button (click)="handleSnap()">{{ snapButtonText }}</button>
+    <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌🏾 {{ faceSnap.snaps }}</span>
+  </p>
+  @if (faceSnap.location) {
+    <p>localisation: {{ faceSnap.location }}</p>
+  }
+  <div>
+    <p class="pipeTitle">DecimalPipe</p>
+    <p>{{ 4346234.36 | number:'1.0-2' }}</p>
+  </div>
+  <div>
+    <p class="pipeTitle">PercentPipe</p>
+    <p>{{ 0.336 | percent:'1.0-1' }}</p>
+  </div>
+  <div>
+    <p class="pipeTitle">CurrencyPipe</p>
+    <p>{{ 344.36 | currency:'EUR' }}</p>
+  </div>
+</div>
