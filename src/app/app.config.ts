@@ -2,7 +2,7 @@ import {ApplicationConfig, LOCALE_ID, provideZoneChangeDetection} from '@angular
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,7 +11,10 @@ export const appConfig: ApplicationConfig = {
     {
       provide: LOCALE_ID,
       useValue: 'fr-FR',
-      deps: [FormsModule]
+      deps: [
+        FormsModule,
+        ReactiveFormsModule,
+      ]
     },
   ]
 };
