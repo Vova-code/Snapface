@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderComponent} from './header/header.component';
 import {RouterOutlet} from '@angular/router';
-import {concatMap, delay, exhaustMap, interval, mergeMap, of, switchMap, take} from 'rxjs';
+import {delay, interval, of, switchMap, take} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {AsyncPipe} from '@angular/common';
 
@@ -28,7 +28,8 @@ export class AppComponent implements OnInit {
       tap(color => console.log(`La lumière s'allume en %c${color}`, `color: ${this.translateColor(color)}`)),
       switchMap(color => this.getTrainObservable$(color)),
       tap(train => console.log(`Train %c${train.color} ${train.trainIndex} arrivé !`, `font-weight: bold; color: ${this.translateColor(train.color)}`)),
-    ).subscribe();
+    )
+    // .subscribe()
   }
 
   translateColor(color: 'rouge' | 'jaune'): string {
