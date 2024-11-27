@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {FaceSnap} from '../models/face-snap';
 import {SnapType} from '../models/snap-type.type';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,29 +33,26 @@ export class FaceSnapsService {
     )
   ];
 
-  getFaceSnaps(): FaceSnap[] {
-    return [...this.faceSnaps];
+  constructor(private httpClient: HttpClient) {
   }
 
-  getFaceSnapById(faceSnapId: string): FaceSnap {
-    const foundFaceSnap = this.faceSnaps.find((faceSnap: FaceSnap) => faceSnap.id === faceSnapId);
-    if (!foundFaceSnap) {
-      throw new Error('FaceSnap not found');
-    }
+  getFaceSnaps(): Observable<FaceSnap[]> {
+    return this.httpClient.get<FaceSnap[]>('http://localhost:3000/facesnaps');
+  }
 
-    return foundFaceSnap;
+  getFaceSnapById(faceSnapId: number): Observable<FaceSnap> {
+    return this.httpClient.get<FaceSnap>(`http://localhost:3000/facesnaps/${faceSnapId}`);
   }
 
   snapFaceSnapById(faceSnapId: string, snapType: SnapType): void {
-    const faceSnap = this.getFaceSnapById(faceSnapId);
-    faceSnap.snap(snapType);
+    const faceSnap = this.getFaceSnapById(Number(faceSnapId));
   }
 
   addFaceSnap(formValues: {title: string, description: string, imageUrl: string, location?: string}): void {
     const newFaceSnap = {
       ...formValues,
       snaps: 0,
-      createdAt: new Date(),
+      createdDate: new Date(),
       id: crypto.randomUUID().substring(0, 8),
     } as FaceSnap;
     this.faceSnaps.push(newFaceSnap);

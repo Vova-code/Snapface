@@ -1,3 +1,1 @@
-@for (faceSnapElement of faceSnaps; track faceSnapElement.title) {
-  <app-face-snap [faceSnap]="faceSnapElement" />
-}
+<app-face-snap *ngFor="let faceSnap of faceSnaps$ | async" [faceSnap]="faceSnap" />
