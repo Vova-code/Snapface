@@ -1,17 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderComponent} from './header/header.component';
 import {RouterOutlet} from '@angular/router';
 import {delay, interval, of, switchMap, take} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {AsyncPipe} from '@angular/common';
+import {CoreModule} from './core/core.module';
+import {FaceSnapsModule} from './face-snaps/face-snaps.module';
+import {LandingPageModule} from './landing-page/landing-page.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    HeaderComponent,
     RouterOutlet,
-    AsyncPipe
+    CoreModule,
+    FaceSnapsModule,
+    LandingPageModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
