@@ -3,7 +3,6 @@ import {RouterOutlet} from '@angular/router';
 import {delay, interval, of, switchMap, take} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {CoreModule} from './core/core.module';
-import {FaceSnapsModule} from './face-snaps/face-snaps.module';
 import {LandingPageModule} from './landing-page/landing-page.module';
 
 @Component({
@@ -12,7 +11,6 @@ import {LandingPageModule} from './landing-page/landing-page.module';
   imports: [
     RouterOutlet,
     CoreModule,
-    FaceSnapsModule,
     LandingPageModule
   ],
   templateUrl: './app.component.html',
