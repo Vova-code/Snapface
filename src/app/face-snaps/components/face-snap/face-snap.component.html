@@ -1,6 +1,6 @@
 <div class="face-snap-card">
   <h2>{{ faceSnap.title | uppercase }}</h2>
-  <p>Mis en ligne le {{ faceSnap.createdAt | date: 'd MMMM yyyy, à HH:mm' }}</p>
+  <p>Mis en ligne le {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
   <p>
     <button (click)="onViewFaceSnap()">VIEW</button>
   </p>
